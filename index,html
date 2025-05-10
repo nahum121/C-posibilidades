@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Remota Aero ++</title>
+    <link rel="stylesheet" href="style.css"> <!-- Lo crearemos después -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <!-- Opcional: Google Fonts si quieres una tipografía específica Frutiger Aero -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Righteous&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- 1. Contenedor para el fondo de emojis -->
+    <div id="emoji-background-container">
+        <!-- Los emojis que caen se generarán aquí con JS o CSS -->
+    </div>
+
+    <div class="app-shell">
+        <!-- 2. Botón para abrir el menú lateral -->
+        <button id="menu-toggle-btn" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <!-- 3. Panel del Menú Lateral Derecho -->
+        <nav id="side-menu-panel" class="side-menu" aria-hidden="true">
+            <div class="menu-header">
+                <h3>Menú Aero ✨</h3>
+                <button id="close-menu-btn" class="close-menu" aria-label="Cerrar menú">×</button>
+            </div>
+            <ul>
+                <li><a href="#home" class="nav-link active-link" data-page="home-page">🏠 Hogar</a></li>
+                <li><a href="#ranks" class="nav-link" data-page="ranks-page">🏅 Rangos</a></li>
+                <li><a href="#contact" class="nav-link" data-page="contact-page">✉️ Contacto</a></li>
+            </ul>
+            <div class="menu-footer-info">
+                <p>Versión 1.0 Aero</p>
+            </div>
+        </nav>
+
+        <!-- Overlay para cuando el menú está abierto (opcional, mejora UX) -->
+        <div id="menu-overlay" class="menu-overlay"></div>
+
+
+        <!-- 4. Área Principal de Contenido -->
+        <main id="main-content-area" class="content-area">
+
+            <!-- SECCIÓN HOGAR (Calculadora y Recomendaciones) -->
+            <section id="home-page" class="page current-page">
+                <header class="page-main-header">
+                    <h1>Calculadora de Probabilidad Remota 🔮</h1>
+                    <p>¡Tu aventura en el mundo digital comienza aquí!</p>
+                </header>
+
+                <!-- Contenedor de la Calculadora -->
+                <div class="calculator-wrapper">
+                    <form id="jobForm">
+                        <fieldset>
+                            <legend>🌟 Tu Perfil Profesional</legend>
+                            <div class="form-group">
+                                <input type="checkbox" id="cvAts" name="cvAts" value="6">
+                                <label for="cvAts">📄 CV optimizado para ATS</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="linkedinProfile" name="linkedinProfile" value="6">
+                                <label for="linkedinProfile">💼 LinkedIn Estelar y Activo</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="portfolio" name="portfolio" value="6">
+                                <label for="portfolio">🎨 Portafolio Online Impactante</label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>🚀 Tu Experiencia y Habilidades</legend>
+                            <div class="form-group">
+                                <input type="checkbox" id="remoteExperience" name="remoteExperience" value="6">
+                                <label for="remoteExperience">💻 Experiencia Remota Comprobada</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="englishLevel" name="englishLevel" value="6">
+                                <label for="englishLevel">🇬🇧 Inglés Fluido (Nivel B2+)</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="technicalSkills" name="technicalSkills" value="6">
+                                <label for="technicalSkills">🛠️ Habilidades Técnicas Relevantes</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="softSkills" name="softSkills" value="6">
+                                <label for="softSkills">🤝 Soft Skills para el Éxito Remoto</label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>🎯 Tu Estrategia de Búsqueda</legend>
+                             <div class="form-group">
+                                <input type="checkbox" id="networking" name="networking" value="6">
+                                <label for="networking">🔗 Red de Contactos (Networking)</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="activeSearch" name="activeSearch" value="6">
+                                <label for="activeSearch">🔍 Búsqueda Activa y Diversificada</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="coverLetters" name="coverLetters" value="6">
+                                <label for="coverLetters">✍️ Cartas de Presentación Personalizadas</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="linkedinPosts" name="linkedinPosts" value="6">
+                                <label for="linkedinPosts">📢 Publicaciones de Valor en LinkedIn</label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>💡 Tu Preparación y Entorno</legend>
+                            <div class="form-group">
+                                <input type="checkbox" id="interviewPrep" name="interviewPrep" value="6">
+                                <label for="interviewPrep">🗣️ Preparación Sólida para Entrevistas</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="remoteTools" name="remoteTools" value="6">
+                                <label for="remoteTools">⚙️ Dominio de Herramientas Colaborativas</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="internet" name="internet" value="6">
+                                <label for="internet">📶 Conexión a Internet Rápida y Estable</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="workspace" name="workspace" value="6">
+                                <label for="workspace">🏠 Espacio de Trabajo Adecuado y Libre de Distracciones</label>
+                            </div>
+                        </fieldset>
+                        
+                        <button type="button" id="calculateBtn" class="calculate-button-aero">✨ Calcular Probabilidad ✨</button>
+                    </form>
+
+                    <!-- Área para mostrar el resultado de la calculadora -->
+                    <div id="resultArea" class="result-container-aero hidden">
+                        <p id="resultText">Analizando...</p>
+                        <div class="progress-bar-shell">
+                            <div id="progressBar" class="progress-bar-fill"></div>
+                        </div>
+                        <p id="finalProbabilityText" class="final-probability hidden"></p>
+                        <p id="rankSuggestion" class="rank-suggestion hidden"></p>
+                    </div>
+                </div> <!-- Fin .calculator-wrapper -->
+
+                <!-- 5. Caja de Recomendaciones -->
+                <aside class="recommendations-box-aero">
+                    <div class="recommendations-header">
+                        <h3>💡 Aero Consejos para Mejorar 💡</h3>
+                        <span class="decorative-bubbles">💧</span>
+                    </div>
+                    <ul class="recommendations-list">
+                        <li><span class="rec-emoji">🌟</span><span>Pule tu LinkedIn hasta que brille. ¡Es tu escaparate digital!</span></li>
+                        <li><span class="rec-emoji">🎯</span><span>Adapta tu CV y carta a CADA oferta. La personalización es clave.</span></li>
+                        <li><span class="rec-emoji">📚</span><span>Practica el método STAR para tus entrevistas. Estructura tus éxitos.</span></li>
+                        <li><span class="rec-emoji">💼</span><span>Crea un portafolio que hable por ti. Muestra, no solo cuentes.</span></li>
+                        <li><span class="rec-emoji">🤝</span><span>Networking no es solo pedir, ¡es ofrecer! Construye relaciones.</span></li>
+                        <li><span class="rec-emoji">🚀</span><span>Mantente al día con las herramientas y tendencias de tu sector.</span></li>
+                        <li><span class="rec-emoji">🧘</span><span>Prepara un entorno de trabajo que te inspire y minimice distracciones.</span></li>
+                    </ul>
+                </aside>
+
+            </section> <!-- Fin #home-page -->
+
+<!-- SECCIÓN RANGOS (INTERACTIVA Y DETALLADA) -->
+<section id="ranks-page" class="page">
+    <header class="page-main-header">
+        <h1>🏅 Tus Niveles de Destreza Remota 🏅</h1>
+        <p>¡Toca un animal para descubrir su magia Aero y qué te depara!</p>
+    </header>
+
+    <div class="ranks-interactive-grid">
+        <!-- Rango 1 -->
+        <div class="rank-card aero-glass" data-animal-name="Explorador Remoto" data-fruit-emoji="🧭" data-sound-id="soundExplorador">
+            <div class="rank-emoji-container">
+                <span class="rank-animal-emoji">🌍</span>
+            </div>
+            <h3 class="rank-title">Explorador Remoto</h3>
+            <p class="rank-probability">Probabilidad: 0% - 15%</p>
+            <p class="rank-description">Estás comenzando tu viaje. ¡La curiosidad es tu mejor mapa!</p>
+            <div class="fruit-drop-zone"></div>
+        </div>
+
+        <!-- Rango 2 -->
+        <div class="rank-card aero-glass" data-animal-name="Aprendiz Digital" data-fruit-emoji="🌱" data-sound-id="soundAprendiz">
+            <div class="rank-emoji-container">
+                <span class="rank-animal-emoji">🐛</span> <!-- Podrías usar un animal como 🐒 si prefieres -->
+            </div>
+            <h3 class="rank-title">Aprendiz Digital</h3>
+            <p class="rank-probability">Probabilidad: 16% - 30%</p>
+            <p class="rank-description">Absorbiendo conocimiento como una esponja. ¡Sigue cultivando tus habilidades!</p>
+            <div class="fruit-drop-zone"></div>
+        </div>
+
+        <!-- Rango 3 -->
+        <div class="rank-card aero-glass" data-animal-name="Navegante de Redes" data-fruit-emoji="📡" data-sound-id="soundNavegante">
+            <div class="rank-emoji-container">
+                <span class="rank-animal-emoji">🦊</span>
+            </div>
+            <h3 class="rank-title">Navegante de Redes</h3>
+            <p class="rank-probability">Probabilidad: 31% - 45%</p>
+            <p class="rank-description">Conectando los puntos y construyendo tu presencia online.</p>
+            <div class="fruit-drop-zone"></div>
+        </div>
+
+        <!-- Rango 4 -->
+        <div class="rank-card aero-glass" data-animal-name="Colaborador Ágil" data-fruit-emoji="🧩" data-sound-id="soundColaborador">
+            <div class="rank-emoji-container">
+                <span class="rank-animal-emoji">🦉</span>
+            </div>
+            <h3 class="rank-title">Colaborador Ágil</h3>
+            <p class="rank-probability">Probabilidad: 46% - 60%</p>
+            <p class="rank-description">Eres eficiente y te adaptas bien al entorno virtual.</p>
+            <div class="fruit-drop-zone"></div>
+        </div>
+        
+        <!-- Rango 5 -->
+        <div class="rank-card aero-glass" data-animal-name="Profesional Remoto Sólido" data-fruit-emoji="💎" data-sound-id="soundProfesional">
+            <div class="rank-emoji-container">
+                <span class="rank-animal-emoji">🐺</span>
+            </div>
+            <h3 class="rank-title">Profesional Remoto Sólido</h3>
+            <p class="rank-probability">Probabilidad: 61% - 75%</p>
+            <p class="rank-description">Un pilar confiable en cualquier equipo distribuido.</p>
+            <div class="fruit-drop-zone"></div>
+        </div>
+
+        <!-- Rango 6 -->
+        <div class="rank-card aero-glass" data-animal-name="Líder de Impacto Virtual" data-fruit-emoji="🚀" data-sound-id="soundLider">
+            <div class="rank-emoji-container">
+                <span class="rank-animal-emoji">🦅</span>
+            </div>
+            <h3 class="rank-title">Líder de Impacto Virtual</h3>
+            <p class="rank-probability">Probabilidad: 76% - 90%</p>
+            <p class="rank-description">Inspiras y guías con maestría en el espacio digital.</p>
+            <div class="fruit-drop-zone"></div>
+        </div>
+        
+        <!-- Rango 7 -->
+        <div class="rank-card aero-glass" data-animal-name="Maestro Zen Remoto" data-fruit-emoji="🧘" data-sound-id="soundMaestro">
+            <div class="rank-emoji-container">
+                <span class="rank-animal-emoji">🦁</span>
+            </div>
+            <h3 class="rank-title">Maestro Zen Remoto</h3>
+            <p class="rank-probability">Probabilidad: 91% - 100%</p>
+            <p class="rank-description">Dominas el arte del trabajo remoto con gracia y eficacia.</p>
+            <div class="fruit-drop-zone"></div>
+        </div>
+    </div>
+
+    <!-- Contenedor para audios (si los añades después) -->
+    <div id="audio-container" class="hidden">
+        <!-- <audio id="soundExplorador" src="path/to/explorador.mp3"></audio> -->
+        <!-- ... más audios ... -->
+    </div>
+</section> <!-- Fin #ranks-page -->
+
+            <!-- SECCIÓN CONTACTO (Contenido de Ejemplo) -->
+            <section id="contact-page" class="page">
+                <header class="page-main-header">
+                    <h1>✉️ Conecta con el Creador ✉️</h1>
+                </header>
+                <div class="contact-content-placeholder">
+                    <p><em>(Información de contacto y un diseño Aero... ¡Se detallará más adelante!)</em></p>
+                    <p>Un saludo de Nahum Castro 👋</p>
+                </div>
+            </section> <!-- Fin #contact-page -->
+
+        </main>
+
+        <!-- 6. Pie de Página -->
+        <footer class="site-footer-credit">
+            <p>Creado con 💙 por: Nahum Castro.</p>
+        </footer>
+    </div> <!-- Fin .app-shell -->
+
+    <script src="script.js"></script> <!-- Lo crearemos después -->
+</body>
+</html>
